@@ -2,11 +2,11 @@
 
 class Medicamento : Servicio
 {
-    public string Nombre { get; set; }
-    public decimal PorcentajeGanancia { get; set; }
-    public decimal PrecioLista { get; set; }
+    private string? Nombre { get; set; }
+    private decimal PorcentajeGanancia { get; set; }
+    private decimal PrecioLista { get; set; }
 
-    public Medicamento(string nombre, decimal porcentajeGanancia, decimal precioLista)
+    public Medicamento(string? nombre, decimal porcentajeGanancia, decimal precioLista)
     {
         Nombre = nombre;
         PorcentajeGanancia = porcentajeGanancia;
@@ -15,7 +15,7 @@ class Medicamento : Servicio
 
     public override decimal CalcularPrecio()
     {
-        decimal precioFinal = PrecioLista + (PorcentajeGanancia * PrecioLista / 100);
+        var precioFinal = PrecioLista + (PorcentajeGanancia * PrecioLista / 100);
         precioFinal += precioFinal * 0.21M; // Agregar el 21% de IVA
         return precioFinal;
     }

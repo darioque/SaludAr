@@ -4,8 +4,8 @@ class Program
 {
     private static void Main()
     {
-        Clinica clinica = new Clinica();
-        MenuPrincipal menu = new MenuPrincipal(clinica);
+        var clinica = new Clinica();
+        var menu = new MenuPrincipal(clinica);
 
         menu.EjecutarMenu();
     }

@@ -2,15 +2,15 @@
 
 class Clinica
 {
-    private List<Servicio> historialFacturacion = new List<Servicio>();
+    private List<Servicio?> _historialFacturacion = new List<Servicio?>();
 
     public void AgregarServicio()
     {
         Console.WriteLine("Ingrese los detalles del servicio:");
         Console.Write("Tipo de servicio (1: Medicamento, 2: Internación, 3: Laboratorio): ");
-        if (int.TryParse(Console.ReadLine(), out int tipoServicio))
+        if (int.TryParse(Console.ReadLine(), out var tipoServicio))
         {
-            Servicio nuevoServicio = null;
+            Servicio? nuevoServicio;
 
             switch (tipoServicio)
             {
@@ -28,7 +28,7 @@ class Clinica
                     return;
             }
 
-            historialFacturacion.Add(nuevoServicio);
+            _historialFacturacion.Add(nuevoServicio);
             Console.WriteLine("Servicio agregado exitosamente.");
         }
         else
@@ -39,10 +39,10 @@ class Clinica
 
     public void MostrarDetallesServicios()
     {
-        foreach (var servicio in historialFacturacion)
+        foreach (var servicio in _historialFacturacion)
         {
-            servicio.MostrarDetalles();
-            Console.WriteLine($"Precio final: {servicio.CalcularPrecio():C}\n");
+            servicio?.MostrarDetalles();
+            if (servicio != null) Console.WriteLine($"Precio final: {servicio.CalcularPrecio():C}\n");
         }
     }
 
@@ -50,9 +50,9 @@ class Clinica
     {
         decimal montoTotal = 0;
 
-        foreach (var servicio in historialFacturacion)
+        foreach (var servicio in _historialFacturacion)
         {
-            montoTotal += servicio.CalcularPrecio();
+            if (servicio != null) montoTotal += servicio.CalcularPrecio();
         }
 
         return montoTotal;
@@ -60,29 +60,19 @@ class Clinica
 
     public int CantServiciosSimples()
     {
-        int cantidadServiciosSimples = 0;
-
-        foreach (var servicio in historialFacturacion)
-        {
-            if (servicio is ServicioLaboratorio laboratorio && laboratorio.NivelComplejidad < 3)
-            {
-                cantidadServiciosSimples++;
-            }
-        }
-
-        return cantidadServiciosSimples;
+        return _historialFacturacion.Count(servicio => servicio is ServicioLaboratorio { NivelComplejidad: < 3 });
     }
 
-    
-    public Medicamento CrearMedicamento()
+
+    private static Medicamento? CrearMedicamento()
     {
         Console.Write("Nombre del medicamento: ");
-        string nombre = Console.ReadLine();
+        var nombre = Console.ReadLine();
         Console.Write("Porcentaje de ganancia: ");
-        if (decimal.TryParse(Console.ReadLine(), out decimal ganancia))
+        if (decimal.TryParse(Console.ReadLine(), out var ganancia))
         {
             Console.Write("Precio de lista: ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal precioLista))
+            if (decimal.TryParse(Console.ReadLine(), out var precioLista))
             {
                 return new Medicamento(nombre, ganancia, precioLista);
             }
@@ -92,12 +82,12 @@ class Clinica
         return null;
     }
 
-    public ServicioInternacion CrearServicioInternacion()
+    private static ServicioInternacion? CrearServicioInternacion()
     {
         Console.Write("Especialidad: ");
-        string especialidad = Console.ReadLine();
+        var especialidad = Console.ReadLine();
         Console.Write("Cantidad de días internado: ");
-        if (int.TryParse(Console.ReadLine(), out int diasInternado))
+        if (int.TryParse(Console.ReadLine(), out var diasInternado))
         {
             return new ServicioInternacion(especialidad, diasInternado);
         }
@@ -106,15 +96,15 @@ class Clinica
         return null;
     }
 
-    public ServicioLaboratorio CrearServicioLaboratorio()
+    private static ServicioLaboratorio? CrearServicioLaboratorio()
     {
         Console.Write("Nombre del estudio de laboratorio: ");
-        string nombre = Console.ReadLine();
+        var nombre = Console.ReadLine();
         Console.Write("Cantidad de días desde la muestra hasta el resultado: ");
-        if (int.TryParse(Console.ReadLine(), out int diasLaboratorio))
+        if (int.TryParse(Console.ReadLine(), out var diasLaboratorio))
         {
             Console.Write("Nivel de complejidad (1-5): ");
-            if (int.TryParse(Console.ReadLine(), out int nivelComplejidad))
+            if (int.TryParse(Console.ReadLine(), out var nivelComplejidad))
             {
                 return new ServicioLaboratorio(nombre, diasLaboratorio, nivelComplejidad);
             }

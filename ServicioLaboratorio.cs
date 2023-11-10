@@ -2,11 +2,11 @@
 
 class ServicioLaboratorio : Servicio
 {
-    private string Nombre { get; set; }
+    private string? Nombre { get; set; }
     private int DiasLaboratorio { get; set; }
     public int NivelComplejidad { get; set; }
 
-    public ServicioLaboratorio(string nombre, int diasLaboratorio, int nivelComplejidad)
+    public ServicioLaboratorio(string? nombre, int diasLaboratorio, int nivelComplejidad)
     {
         Nombre = nombre;
         DiasLaboratorio = diasLaboratorio;
@@ -15,7 +15,7 @@ class ServicioLaboratorio : Servicio
 
     public override decimal CalcularPrecio()
     {
-        decimal precio = DiasLaboratorio * 10000M; // $10,000 por día de laboratorio
+        var precio = DiasLaboratorio * 10000M; // $10,000 por día de laboratorio
 
         if (NivelComplejidad > 3)
         {

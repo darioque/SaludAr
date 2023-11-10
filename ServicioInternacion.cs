@@ -2,10 +2,10 @@
 
 class ServicioInternacion : Servicio
 {
-    private string Especialidad { get; set; }
+    private string? Especialidad { get; set; }
     private int DiasInternado { get; set; }
 
-    public ServicioInternacion(string especialidad, int diasInternado)
+    public ServicioInternacion(string? especialidad, int diasInternado)
     {
         Especialidad = especialidad;
         DiasInternado = diasInternado;

@@ -2,11 +2,11 @@
 
 class MenuPrincipal
 {
-    private Clinica clinica;
+    private Clinica _clinica;
 
     public MenuPrincipal(Clinica clinica)
     {
-        this.clinica = clinica;
+        this._clinica = clinica;
     }
 
     public void EjecutarMenu()
@@ -44,10 +44,10 @@ class MenuPrincipal
         switch (opcion)
         {
             case 1:
-                clinica.AgregarServicio();
+                _clinica.AgregarServicio();
                 break;
             case 2:
-                clinica.MostrarDetallesServicios();
+                _clinica.MostrarDetallesServicios();
                 break;
             case 3:
                 Console.WriteLine("Saliendo del programa...");
@@ -60,7 +60,7 @@ class MenuPrincipal
 
     private void MostrarResultados()
     {
-        Console.WriteLine($"Monto total facturado: {clinica.MontoTotalFacturado():C}");
-        Console.WriteLine($"Cantidad de servicios de laboratorio simples: {clinica.CantServiciosSimples()}");
+        Console.WriteLine($"Monto total facturado: {_clinica.MontoTotalFacturado():C}");
+        Console.WriteLine($"Cantidad de servicios de laboratorio simples: {_clinica.CantServiciosSimples()}");
     }
 }

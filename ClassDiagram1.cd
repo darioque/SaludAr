@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SaludAr.Clinica">
+    <Position X="1" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAIAYAACAACAIAACAAAAAA=</HashCode>
+      <FileName>Clinica.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_historialFacturacion" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SaludAr.Medicamento">
+    <Position X="12.25" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAgAAABAAAAAAAAAAQABAAAAA=</HashCode>
+      <FileName>Medicamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaludAr.MenuPrincipal">
+    <Position X="1.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>IACAAAgAAAAAAAAAAAAAAgAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuPrincipal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_clinica" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SaludAr.Program">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaludAr.Servicio">
+    <Position X="9.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Servicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaludAr.ServicioInternacion">
+    <Position X="6.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAAAAEAA=</HashCode>
+      <FileName>ServicioInternacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaludAr.ServicioLaboratorio">
+    <Position X="9" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAQAAgAABA=</HashCode>
+      <FileName>ServicioLaboratorio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
